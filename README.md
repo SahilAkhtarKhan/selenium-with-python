@@ -8,7 +8,7 @@
 #### 2. Setting Up and Configuring WebDriver in PyCharm
 - Install Python and PyCharm.
 - Download the appropriate WebDriver for your browser.
-- Set up Selenium WebDriver in PyCharm using either Approach #01 or Approach #02.
+- Set up Selenium WebDriver in PyCharm using either Approach #01 or Approach #02 given in notes.
 
 #### 3. Basic Selenium Script Structure
 - Learn the basic structure of a Selenium script in Python.
