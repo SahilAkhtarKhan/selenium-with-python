@@ -1,0 +1,292 @@
+
+Certainly! Let's format and elaborate the Selenium notes with examples for better readability.
+
+### Selenium Automation with Python
+
+#### 1. Introduction to Selenium
+- Selenium is a powerful tool for automating web browsers.
+- It supports multiple programming languages, including Python.
+- Selenium is commonly used for web testing and automation.
+
+#### 2. Setting Up and Configuring WebDriver in PyCharm
+##### Pre-requisites:
+1. Python installed
+2. PyCharm installed
+
+##### Download WebDriver:
+1. Chrome: [Download ChromeDriver](https://chromedriver.chromium.org/downloads)
+2. Edge: [Download Microsoft Edge WebDriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)
+3. Firefox: [Download Geckodriver](https://github.com/mozilla/geckodriver/releases)
+4. Safari: [WebDriver Support in Safari 10+](https://webkit.org/blog/6900/webdriver-support-in-safari-10/)
+
+##### Setup Selenium WebDriver:
+- **Approach #01:**
+   - Open PyCharm
+   - Go to Settings -> Project -> Python Interpreter
+   - Click the '+' icon and search for 'selenium'
+   - Install the package
+- **Approach #02:**
+   - Use the command: `pip install selenium`
+
+#### 3. Basic Selenium Script Structure
+ 
+# Import the necessary libraries
+from selenium import webdriver
+
+# Create a WebDriver instance
+driver = webdriver.Chrome(executable_path='path/to/chromedriver')
+
+# Navigate to a webpage
+driver.get('https://www.example.com')
+
+# Perform actions like clicking buttons, filling forms, etc.
+
+# Close the browser
+driver.quit()
+```
+
+#### 4. Locating Elements
+Selenium provides various methods to locate HTML elements:
+- By ID: `driver.find_element(By.ID)`
+- By Name: `driver.find_element(By.NAME)`
+- By XPath: `driver.find_element(By.XPATH)`
+- By CSS Selector: `driver.find_element(By.CSS_SELECTOR)`
+- By Link Text: `driver.find_element(By.LINK_TEXT)`
+- By Partial Link Text: `driver.find_element(By.PARTIAL_LINK_TEXT)`
+- By Class Name: `driver.find_element(By.CLASS_NAME)`
+- By Tag Name: `driver.find_element(By.TAG_NAME)`
+
+#### 5. Interacting with Elements
+ 
+# Input text into a text field
+element.send_keys('text')
+
+# Click on a button or link
+element.click()
+
+# Get text from an element
+text = element.text
+
+# Check if an element is displayed
+element.is_displayed()
+
+# Check if an element is enabled
+element.is_enabled()
+
+# Check if an element is selected (for checkboxes and radio buttons)
+element.is_selected()
+```
+
+#### 6. WebDriver in PyCharm and Test Case Example
+- Open PyCharm and set up Selenium WebDriver:
+  - Project -> Python Interpreter -> Install 'selenium' package
+- Test Case Example:
+    
+   driver = webdriver.Chrome(executable_path='path/to/chromedriver')
+   driver.get('https://opensource-demo.orangehrmlive.com/')
+   # Perform actions like entering username, password, and clicking login
+   actual_title = driver.title
+   expected_title = 'OrangeHRM'
+   assert actual_title == expected_title, f"Title mismatch! Expected: {expected_title}, Actual: {actual_title}"
+   driver.quit()
+   ```
+
+#### 7. XPath in Selenium
+**Q: Which XPath is preferred more and why?**
+- *A: Relative XPath is preferred.*
+
+**XPath Options:**
+- `and`
+- `or`
+- `contains()`
+- `starts-with()`
+- `text()`
+
+**XPath Axes:**
+- `self`
+- `parent`: `//span[@class='child']//parent::div`
+- `child`: `//div[@class='parent']//child::span`
+- `ancestor`: `//div[@class='current']//ancestor::div`
+- `descendant`: `//div[@class='parent']//descendant::span`
+- `following`: `//div[@class='current']//following::div`
+- `following-sibling`: `//li[@class='item']//following-sibling::li`
+- `preceding`: `//div[@class='current']//preceding::div`
+- `preceding-sibling`: `//li[@class='item']//preceding-sibling::li`
+
+#### 8. Important Commands and Concepts
+ 
+# Introduce pauses in the script
+import time
+time.sleep(2)
+
+# generally used with self-closing element which does not contain inner text
+element.get_attribute('attribute_name')
+
+# Different commands in Selenium:
+# Application commands
+driver.title
+driver.get('https://www.example.com')
+driver.current_url
+driver.page_source
+
+# Conditional commands
+element.is_displayed()
+element.is_enabled()
+element.is_selected()
+
+# Browser commands
+driver.close()  # Driver focused
+driver.quit()   # This will kill the process
+
+# Navigational commands
+driver.back()
+driver.forward()
+driver.refresh()
+
+# Wait commands
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+
+# Implicit wait
+driver.implicitly_wait(10)
+
+# Explicit wait
+wait = WebDriverWait(driver, 10)
+element = wait.until(EC.presence_of_element_located((By.ID, 'element_id')))
+```
+
+#### 9. Frames/Iframes
+ 
+# Switch to Frames/Iframes by Name, ID, Web Element, or Index
+driver.switch_to.frame("frame_name")
+driver.switch_to.frame("frame_id")
+frame_element = driver.find_element(By.XPATH, "//iframe[@attribute='value']")
+driver.switch_to.frame(frame_element)
+driver.switch_to.frame(0)  # Replace '0' with the index of the frame
+
+# Handling Child Frames
+driver.switch_to.parent_frame()
+driver.switch_to.frame("parent_frame_name")
+# After actions in a frame, use driver.switch_to.default_content() to return to the default content.
+```
+
+#### 10. Browser Windows
+ 
+# Switch to a window using its ID
+window_id = "window_id_here"
+driver.switch_to.window(window_id)
+
+# Get the window ID of the current window
+current_window_id = driver.current_window_handle
+
+# Get a list of window IDs for all open windows
+window_handles = driver.window_handles
+```
+
+#### 11. WebTable
+-------------------------
+
+#### 12. Date-picker
+1. Standard
+2. Non-standard (customized)
+
+#### 13. Mouse Operations
+ 
+from selenium.webdriver.common.action_chains import ActionChains
+
+# Mouse hover
+ActionChains(driver).move_to_element(element).perform()
+
+# Right-click
+ActionChains(driver).context_click(element).perform()
+
+# Double-click
+ActionChains(driver).double_click(element).perform()
+
+# Drag and drop
+ActionChains(driver).drag_and_drop(sourceElement, targetElement).perform()
+```
+
+#### 14. Slider
+ 
+# To deal with the slider in selenium, first, get the slider's current position.
+current_position = element.location
+
+# To move the slider, use drag_and_drop_by_offset
+ActionChains(driver).drag_and_drop_by_offset(element, x
+
+_offset, y_offset).perform()
+```
+
+#### 15. Scrolling
+ 
+# Scroll down page by pixel
+driver.execute_script("window.scrollBy(0, 3000)")
+
+# Scroll down page till the element is visible
+driver.execute_script("arguments[0].scrollIntoView()", element)
+
+# Scroll down the page till the end
+driver.execute_script("window.scrollBy(0, document.body.scrollHeight)")
+
+# Scroll down the page till start (use minus for upward scroll)
+driver.execute_script("window.scrollBy(0, -document.body.scrollHeight)")
+```
+
+#### 16. Keyboard Actions
+ 
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
+
+# Ctrl+A
+ActionChains(driver).key_down(Keys.CONTROL).send_keys("a").key_up(Keys.CONTROL).perform()
+
+# Ctrl+C
+ActionChains(driver).key_down(Keys.CONTROL).send_keys("c").key_up(Keys.CONTROL).perform()
+
+# Tab
+ActionChains(driver).send_keys(Keys.TAB).perform()
+
+# Ctrl+V
+ActionChains(driver).key_down(Keys.CONTROL).send_keys("v").key_up(Keys.CONTROL).perform()
+```
+
+#### 17. How to Download a File
+
+#### 18. How to Capture Screenshots
+ 
+# To capture the current working directory
+import os
+current_directory = os.getcwd()
+
+# To capture a screenshot
+driver.save_screenshot(os.path.join(current_directory, 'screenshot.png'))
+```
+
+#### 19. How to Open a New Window Tab
+
+#### 20. How to Handle Cookies
+ 
+# Get all cookies
+total_cookies = driver.get_cookies()
+
+# Add a new cookie to the browser
+driver.add_cookie({"name": "sahil", "occupation": "qa automation"})
+
+# Delete a specific cookie from the browser
+driver.delete_cookie("sahil")
+
+# Delete all cookies
+driver.delete_all_cookies()
+```
+
+#### 21. Headless Mode
+ 
+from selenium.webdriver.chrome.options import Options
+
+options = Options()
+options.headless = True
+driver = webdriver.Chrome(options=options)
+```
+

@@ -1,0 +1,78 @@
+
+### Selenium Learning Tracker
+
+#### 1. Introduction to Selenium
+- Understand the purpose of Selenium in web automation and testing.
+- Know that Selenium supports multiple programming languages, with a focus on Python.
+
+#### 2. Setting Up and Configuring WebDriver in PyCharm
+- Install Python and PyCharm.
+- Download the appropriate WebDriver for your browser.
+- Set up Selenium WebDriver in PyCharm using either Approach #01 or Approach #02.
+
+#### 3. Basic Selenium Script Structure
+- Learn the basic structure of a Selenium script in Python.
+- Explore the creation of a WebDriver instance, navigating to a webpage, and closing the browser.
+
+#### 4. Locating Elements
+- Understand various methods to locate HTML elements using Selenium.
+
+#### 5. Interacting with Elements
+- Learn how to interact with different types of HTML elements using Selenium methods.
+
+#### 6. WebDriver in PyCharm and Test Case Example
+- Set up Selenium in PyCharm.
+- Create a basic test case example for a web application.
+
+#### 7. XPath in Selenium
+- Understand the preferred usage of relative XPath.
+- Explore different XPath options and axes for element selection.
+
+#### 8. Important Commands and Concepts
+- Familiarize yourself with essential commands in Selenium, including browser, conditional, navigational, and wait commands.
+
+#### 9. Frames/Iframes
+- Learn how to switch between frames and iframes in Selenium.
+
+#### 10. Browser Windows
+- Understand how to handle multiple browser windows with Selenium.
+
+#### 11. WebTable
+- Explore methods for interacting with tables in Selenium.
+
+#### 12. Date-picker
+- Learn how to handle standard and non-standard date-pickers.
+
+#### 13. Mouse Operations
+- Understand and practice mouse operations like hover, right-click, double-click, and drag-and-drop.
+
+#### 14. Slider
+- Learn how to interact with sliders on web pages.
+
+#### 15. Scrolling
+- Explore different techniques for scrolling on a webpage using Selenium.
+
+#### 16. Keyboard Actions
+- Practice keyboard actions, such as Ctrl+A, Ctrl+C, Tab, and Ctrl+V.
+
+#### 17. How to Download a File
+- Learn methods to handle file downloads using Selenium.
+
+#### 18. How to Capture Screenshots
+- Understand how to capture screenshots during test execution.
+
+#### 19. How to Open a New Window Tab
+- Learn how to open a new browser tab/window with Selenium.
+
+#### 20. How to Handle Cookies
+- Understand how to manage cookies using Selenium.
+
+#### 21. Headless Mode
+- Explore running Selenium in headless mode for automated testing without a visible browser.
+
+**Additional Concepts to Explore:**
+- Data-Driven Testing
+- Page Object Model (POM)
+- Cross-Browser Testing
+- Parallel Test Execution
+- Continuous Integration (CI) with Selenium
